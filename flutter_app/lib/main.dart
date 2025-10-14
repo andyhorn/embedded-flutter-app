@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/multi_view_app.dart';
 
 void main() {
-  runApp(const MainApp());
+  runWidget(MultiViewApp(viewBuilder: (context) => const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
