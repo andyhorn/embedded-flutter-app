@@ -13,7 +13,7 @@ _flutter.loader.load({
         let app = await engine.runApp().then((app) => {
             console.log('app running')
 
-            let element = document.querySelectorAll('flutter_container');
+            let element = document.getElementById('flutter_container');
 
             if (!element) {
                 throw 'Could not find element with id "flutter_container"';
