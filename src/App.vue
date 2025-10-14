@@ -26,6 +26,10 @@ export default {
 
       global.flutterApp.addView({
         hostElement: element,
+        // Supply some initial data to this new instance of the Widget built by the viewBuilder function.
+        initialData: {
+          randomValue: Math.floor(Math.random() * 100)
+        }
       });
     }
   }

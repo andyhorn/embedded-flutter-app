@@ -1,3 +1,6 @@
+import 'dart:js_interop';
+import 'dart:ui_web' as ui_web;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/multi_view_app.dart';
 
@@ -16,8 +19,23 @@ class MainApp extends StatelessWidget {
     // Get the unique view ID for this instance of MainApp.
     final id = View.of(context).viewId;
 
+    // Get the initial data passed from JavaScript when this view was created.
+    final initialData = ui_web.views.getInitialData(id) as InitialData;
+
     return MaterialApp(
-      home: Scaffold(body: Center(child: Text('$id - Hello World!'))),
+      home: Scaffold(
+        body: Center(child: Text('${initialData.randomValue} - Hello World!')),
+      ),
     );
   }
+}
+
+// Use an extension type to represent the structure of the initial data
+// passed from JavaScript when creating a new view.
+// Is this required over standard JSON deserialization? :shrug:
+extension type InitialData<T extends JSObject>._(JSObject object)
+    implements JSObject {
+  external InitialData({required int randomValue});
+
+  external int get randomValue;
 }
