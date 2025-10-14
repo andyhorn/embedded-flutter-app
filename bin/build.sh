@@ -12,5 +12,6 @@ echo "Copying build artifacts to public directory..."
 mkdir -p "$PROJECT_ROOT/public/assets"
 cp -r "$PROJECT_ROOT/flutter_app/build/web/assets" "$PROJECT_ROOT/public/assets"
 cp "$PROJECT_ROOT/flutter_app/build/web/main.dart.js" "$PROJECT_ROOT/public/main.dart.js"
+cp "$PROJECT_ROOT/flutter_app/build/web/flutter_bootstrap.js" "$PROJECT_ROOT/public/flutter_bootstrap.js"
 
 echo "Build process completed successfully."
