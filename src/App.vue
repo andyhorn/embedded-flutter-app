@@ -1,6 +1,12 @@
 <template>
+  <div id="button_container">
+    <button @click="onAddFlutterApp()">Add Flutter App</button>
+  </div>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="flutter_apps_container">
+    <!-- Flutter apps will be added here -->
+  </div>
 </template>
 
 <script>
@@ -10,6 +16,18 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods: {
+    onAddFlutterApp() {
+      let element = document.createElement('div');
+      element.className = 'flutter_app_container';
+
+      document.getElementById('flutter_apps_container').appendChild(element);
+
+      global.flutterApp.addView({
+        hostElement: element,
+      });
+    }
   }
 }
 </script>
@@ -22,5 +40,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#flutter_apps_container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+}
+
+.flutter_app_container {
+  width: 200px;
+  height: 400px;
 }
 </style>
