@@ -46,7 +46,7 @@ _flutter.loader.load({
             multiViewEnabled: true,
         });
 
-        // Run the app and store a reference in the flutterApp variable.
+        // Run the app and store a reference in the global flutterApp variable.
         flutterApp = await engine.runApp();
     },
 });
