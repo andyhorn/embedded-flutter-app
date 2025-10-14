@@ -20,7 +20,7 @@ export default {
   methods: {
     onAddFlutterApp() {
       let element = document.createElement('div');
-      element.className = 'flutter_app_container';
+      element.className = 'flutter_container';
 
       document.getElementById('flutter_apps_container').appendChild(element);
 
@@ -48,7 +48,7 @@ export default {
   column-gap: 8px;
 }
 
-.flutter_app_container {
+.flutter_container {
   width: 200px;
   height: 400px;
 }
