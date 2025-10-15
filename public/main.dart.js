@@ -47187,7 +47187,7 @@ $1(a){return B.zN},
 $S:302}
 A.kU.prototype={
 W(a){var s=null,r=A.acU(a).a,q=$.a7H().a.c.i(0,r)
-return new A.oM(new A.pR(A.a8e(new A.z3(A.q(A.cn(q==null?s:q.initialData).randomValue)+" - Hello World!",s,s,s,s),s,s),s),s)}}
+return new A.oM(new A.pR(A.a8e(new A.z3(A.q(A.cn(q==null?s:q.initialData).randomValue)+" - BOOM World!",s,s,s,s),s,s),s),s)}}
 A.oY.prototype={
 ak(){return new A.BX(A.u(t.K,t.cl))}}
 A.BX.prototype={

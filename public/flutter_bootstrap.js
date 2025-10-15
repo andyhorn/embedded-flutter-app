@@ -38,15 +38,35 @@ if (!window._flutter) {
 _flutter.buildConfig = {"engineRevision":"ddf47dd3ff96dbde6d9c614db0d7f019d7c7a2b7","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}]};
 
 
-var flutterApp;
+let flutterApp;
 
-_flutter.loader.load({
-    onEntrypointLoaded: async (engineInitializer) => {
-        const engine = await engineInitializer.initializeEngine({
-            multiViewEnabled: true,
-        });
+const loadFlutterApp = (appUrl) => {
+    _flutter.loader.load({
+        config: {
+            entrypointBaseUrl: appUrl,
+            canvasKitBaseUrl: `${appUrl}/canvaskit/`,
+        },
+        onEntrypointLoaded: async (engineInitializer) => {
+            const engine = await engineInitializer.initializeEngine({
+                assetBase: `${appUrl}/`,
+                multiViewEnabled: true,
+            });
 
-        // Run the app and store a reference in the global flutterApp variable.
-        flutterApp = await engine.runApp();
-    },
-});
+            // Run the app and store a reference in the global flutterApp variable.
+            window.flutterApp = flutterApp = await engine.runApp();
+        }
+    });
+};
+
+window.addView = (hostElement, data) => {
+    const viewId = flutterApp.addView({
+        hostElement: hostElement,
+        initialData: data
+    });
+
+    return viewId;
+}
+
+window.removeView = (viewId) => {
+    flutterApp.removeView(viewId);
+}
