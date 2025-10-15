@@ -55,7 +55,6 @@ export default {
 }
 
 .flutter_container flutter-view {
-  overflow: visible !important;
-  transform: translateX(-50%);
+  display: flex !important;
 }
 </style>
