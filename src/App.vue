@@ -51,5 +51,11 @@ export default {
 .flutter_container {
   width: 200px;
   height: 400px;
+  border: 1px solid black;
+}
+
+.flutter_container flutter-view {
+  overflow: visible !important;
+  transform: translateX(-50%);
 }
 </style>
