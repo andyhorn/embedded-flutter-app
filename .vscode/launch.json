@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dart",
+            "program": "flutter_app/lib/main.dart",
+            "request": "launch",
+            "name": "Flutter Web Main",
+            "args": [
+                "-d", "chrome",
+                "--web-port", "5000",
+                "--web-header", "Access-Control-Allow-Origin=http://localhost:8080",
+                "--web-header", "Access-Control-Allow-Credentials=true",
+                "--web-launch-url=http://localhost:8080/"
+            ]
+        }
+    ]
+}
